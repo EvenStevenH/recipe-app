@@ -1,0 +1,7 @@
+## Overview
+
+A client-side "Recipe Discovery" application using [TheMealDB API](https://www.themealdb.com/)! It allows users to browse recipes by category, search for specific recipes, view detailed recipe information, and manage a personal list of their favorite recipes. While no key is required, you would need to install React node modules and `react-router-dom` to run the project locally.
+
+I used two custom hooks — `useFetch` for handling data fetching logic throughout the app, and `useLocalStorage` to persist the user’s list of favorite recipes in the browser's `localStorage`. I structured `useFetch` to manage the data, loading, and error states of any URL links being passed to it. Next, I set up a context called `FavoritesContext` to manage the user’s list of favorite recipes globally, and then routing logic using React Router. Finally, I made reusable components (like a visual `Spinner` for loading and `RecipeCard` for recipes) and styled everything in readable, custom CSS.
+
+The most challenging part was making the way I was routing different API endpoints consistent across pages and displaying them properly. For the instance of `RecipeDetail`, I had to understand what the available data looked like. Each recipe had twenty numbered `strIngredient` properties, but not all of them contained usable values. I wrote a simple loop to skip the falsy values — empty strings and `null` — and pushed them into an `ingredients` array for display.
