@@ -81,6 +81,13 @@ form,
 }
 
 .detail {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+}
+
+.detail div {
 	max-width: 550px;
 }
 

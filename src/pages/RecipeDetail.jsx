@@ -27,30 +27,32 @@ export default function RecipeDetail() {
 
 	return (
 		<div className="detail">
-			<h1>{meal.strMeal}</h1>
 			<div>
-				<img
-					src={meal.strMealThumb}
-					alt={meal.strMeal}
-				/>
+				<h1>{meal.strMeal}</h1>
+				<div>
+					<img
+						src={meal.strMealThumb}
+						alt={meal.strMeal}
+					/>
+				</div>
+
+				<button
+					onClick={() => (favorite ? removeFavorite(recipeId) : addFavorite(recipeId))}
+					className="favorite-btn"
+				>
+					{favorite ? "Remove from Favorites" : "Add to Favorites"}
+				</button>
+
+				<h3>Ingredients</h3>
+				<ul>
+					{ingredients.map((item, index) => (
+						<li key={index}>{item}</li>
+					))}
+				</ul>
+
+				<h3>Instructions</h3>
+				<p>{meal.strInstructions}</p>
 			</div>
-
-			<button
-				onClick={() => (favorite ? removeFavorite(recipeId) : addFavorite(recipeId))}
-				className="favorite-btn"
-			>
-				{favorite ? "Remove from Favorites" : "Add to Favorites"}
-			</button>
-
-			<h3>Ingredients</h3>
-			<ul>
-				{ingredients.map((item, index) => (
-					<li key={index}>{item}</li>
-				))}
-			</ul>
-
-			<h3>Instructions</h3>
-			<p>{meal.strInstructions}</p>
 		</div>
 	);
 }
