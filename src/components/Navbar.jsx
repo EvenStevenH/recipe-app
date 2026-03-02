@@ -17,7 +17,7 @@ export default function Navbar() {
 	return (
 		<nav className="navbar">
 			<div className="nav-links">
-				<Link to="/home">Home</Link>
+				<Link to="/">Home</Link>
 				<Link to="/favorites">Favorites</Link>
 			</div>
 

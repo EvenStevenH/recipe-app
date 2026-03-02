@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import FavoritesProvider from "./context/FavoritesContext";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -10,12 +10,12 @@ import SearchResults from "./pages/SearchResults";
 
 export default function App() {
 	return (
-		<BrowserRouter>
+		<HashRouter basename='/'>
 			<FavoritesProvider>
 				<Navbar />
 				<Routes>
 					<Route
-						path="/home"
+						path="/"
 						element={<Home />}
 					/>
 					<Route
@@ -36,6 +36,6 @@ export default function App() {
 					/>
 				</Routes>
 			</FavoritesProvider>
-		</BrowserRouter>
+		</HashRouter>
 	);
 }
